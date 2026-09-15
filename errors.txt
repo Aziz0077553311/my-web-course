@@ -1,0 +1,190 @@
+>> PS C:\Users\123\Desktop\web course_3\backend> cp .env.example .env
+>> PS C:\Users\123\Desktop\web course_3\backend> alembic upgrade head
+>> Traceback (most recent call last):
+>>   File "<frozen runpy>", line 198, in _run_module_as_main
+>>   File "<frozen runpy>", line 88, in _run_code
+>>   File "C:\Python312\Scripts\alembic.exe\__main__.py", line 5, in <module>
+>>   File "C:\Python312\Lib\site-packages\alembic\config.py", line 1047, in main
+>>     CommandLine(prog=prog).main(argv=argv)
+>>   File "C:\Python312\Lib\site-packages\alembic\config.py", line 1037, in main
+>>     self.run_cmd(cfg, options)
+>>   File "C:\Python312\Lib\site-packages\alembic\config.py", line 971, in run_cmd
+>>     fn(
+>>   File "C:\Python312\Lib\site-packages\alembic\command.py", line 463, in upgrade
+>>     script = ScriptDirectory.from_config(config)
+>>              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>   File "C:\Python312\Lib\site-packages\alembic\script\base.py", line 169, in from_config  
+
+>>     script_location = config.get_alembic_option("script_location")
+>>                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>   File "C:\Python312\Lib\site-packages\alembic\config.py", line 469, in get_alembic_option
+>>     if self.file_config.has_option(self.config_ini_section, name):
+>>        ^^^^^^^^^^^^^^^^
+>>   File "C:\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1123, in __get__    obj.__dict__[self.__name__] = result = self.fget(obj)
+>>                                            ^^^^^^^^^^^^^^
+>>   File "C:\Python312\Lib\site-packages\alembic\config.py", line 254, in file_config       
+>>     compat.read_config_parser(file_config, [self._config_file_path])
+>>   File "C:\Python312\Lib\site-packages\alembic\util\compat.py", line 130, in read_config_parser
+>>     return file_config.read(file_argument, encoding="locale")
+>>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>   File "C:\Python312\Lib\configparser.py", line 684, in read
+>>     self._read(fp, filename)
+>>   File "C:\Python312\Lib\configparser.py", line 1064, in _read
+>>     raise MissingSectionHeaderError(fpname, lineno, line)
+>> configparser.MissingSectionHeaderError: File contains no section headers.
+>> file: WindowsPath('alembic.ini'), line: 1
+>> 'п>ї[alembic]\n'
+Произошла ошибка. Сообщите об этой ошибке, указав данные ниже.
+Напишите в GitHub: https://github.com/lzybkr/PSReadLine/issues/new
+-----------------------------------------------------------------------
+Последние клавиши 42:
+ Ctrl+v Enter
+ Ctrl+v Enter
+ с в Space Backspace Backspace Backspace Backspace c d Space b a c k e n d Enter
+ Ctrl+v Enter
+ Ctrl+v Enter
+ UpArrow UpArrow DownArrow Enter
+ UpArrow UpArrow UpArrow UpArrow DownArrow DownArrow Enter
+ UpArrow UpArrow Enter
+ Ctrl+v Ctrl+z
+
+Исключение:
+System.ArgumentOutOfRangeException: Значение должно быть больше или равно нулю и меньше, чем 
+размер буфера в данной размерности.
+Имя параметра: top
+Фактическое значение было -30.
+   в Microsoft.PowerShell.PSConsoleReadLine.ReallyRender(RenderData renderData, String defaultColor)
+   в Microsoft.PowerShell.PSConsoleReadLine.ForceRender()
+   в Microsoft.PowerShell.PSConsoleReadLine.ProcessOneKey(ConsoleKeyInfo key, Dictionary`2 dispatchTable, Boolean ignoreIfNoAction, Object arg)
+   в Microsoft.PowerShell.PSConsoleReadLine.InputLoop()
+   в Microsoft.PowerShell.PSConsoleReadLine.ReadLine(Runspace runspace, EngineIntrinsics engineIntrinsics)
+-----------------------------------------------------------------------
+PS C:\Users\123\Desktop\web course_3\backend> python -m app.scripts.seed_data
+Traceback (most recent call last):
+  File "C:\Python312\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] Указанное сетевое имя более недоступно
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] Указанное сетевое имя более недоступно
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\123\Desktop\web course_3\backend\app\scripts\seed_data.py", line 383, in <module>
+    asyncio.run(main())
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\123\Desktop\web course_3\backend\app\scripts\seed_data.py", line 378, in main
+    await seed(async_session)
+  File "C:\Users\123\Desktop\web course_3\backend\app\scripts\seed_data.py", line 137, in seed
+    await seed_roles(session)
+  File "C:\Users\123\Desktop\web course_3\backend\app\scripts\seed_data.py", line 149, in seed_roles
+    result = await session.execute(select(Role).where(Role.code.in_(role_codes)))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 449, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2351, in execute     
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go    
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 3293, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__     
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect        
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout     
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout       
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get        
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__    raise exc_value.with_traceback(exc_tb)
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__       
+    self.__connect()
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 900, in __connect      
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__    raise exc_value.with_traceback(exc_tb)
+  File "C:\Python312\Lib\site-packages\sqlalchemy\pool\base.py", line 896, in __connect      
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect    
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 630, in connect   
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 955, 
+in connect
+    await_only(creator_fn(*arg, **kw)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\asyncpg\connection.py", line 2329, in connect
+    return await connect_utils._connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\asyncpg\connect_utils.py", line 991, in _connect      
+    conn = await _connect_addr(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\asyncpg\connect_utils.py", line 828, in _connect_addr 
+    return await __connect_addr(params, True, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\asyncpg\connect_utils.py", line 876, in __connect_addr    await connected
+asyncpg.exceptions.ConnectionDoesNotExistError: connection was closed in the middle of operation

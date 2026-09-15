@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --color-bg: #F7F7FB;
+  --color-surface: #FFFFFF;
+  --color-sidebar: #14142B;
+  --color-primary: #6C4CF1;
+  --color-primary-hover: #5B3AD9;
+  --color-primary-active: #4A2CC0;
+  --color-text: #14142B;
+  --color-text-secondary: #6B7280;
+  --color-border: #E7E7F0;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-neutral: #9CA3AF;
+
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: JetBrains Mono, monospace;
+
+  --radius-card: 12px;
+  --radius-small: 8px;
+
+  --shadow-card: 0 1px 2px rgba(20,20,43,.06), 0 2px 8px rgba(20,20,43,.04);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1 { font-size: 32px; line-height: 40px; font-weight: 600; }
+  h2 { font-size: 24px; line-height: 32px; font-weight: 600; }
+  h3 { font-size: 18px; line-height: 26px; font-weight: 600; }
+  body { font-size: 14px; line-height: 22px; font-weight: 400; }
+  .caption { font-size: 12px; line-height: 16px; font-weight: 400; }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-small);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.15s, background-color 0.15s;
+  }
+  .btn:focus-visible {
+    outline: none;
+    ring: 2px;
+    ring-color: var(--color-primary);
+    ring-offset: 2px;
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  .btn-primary:hover { background-color: var(--color-primary-hover); }
+  .btn-primary:active { background-color: var(--color-primary-active); }
+  
+  .btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+  .btn-secondary:hover { background-color: var(--color-border); }
+  .btn-secondary:active { background-color: var(--color-border); }
+  
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-text);
+  }
+  .btn-ghost:hover { background-color: var(--color-border); }
+  .btn-ghost:active { background-color: var(--color-border); }
+  
+  .btn-danger {
+    background-color: var(--color-error);
+    color: white;
+  }
+  .btn-danger:hover { background-color: #dc2626; }
+  .btn-danger:active { background-color: #b91c1c; }
+  
+  .input {
+    display: flex;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: var(--radius-small);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+  .input::placeholder { color: var(--color-text-secondary); }
+  .input:focus-visible {
+    outline: none;
+    ring: 2px;
+    ring-color: var(--color-primary);
+    ring-offset: 2px;
+  }
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .card {
+    border-radius: var(--radius-card);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .badge-success { background-color: #dcfce7; color: #166534; }
+  .badge-warning { background-color: #fef9c3; color: #854d0e; }
+  .badge-error { background-color: #fee2e2; color: #991b1b; }
+  .badge-neutral { background-color: #f3f4f6; color: #374151; }
+  .badge-info { background-color: #dbeafe; color: #1e40af; }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+}
